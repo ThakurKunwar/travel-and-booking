@@ -24,7 +24,7 @@
    class="block px-3 py-2 rounded {{ request()->routeIs('admin.regions.*') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">
     🌍 Regions
 </a>
-                <a href="#" 
+                <a href="{{route('admin.packages.index')}}" 
                    class="block px-3 py-2 rounded hover:bg-gray-700">
                     📦 Packages
                 </a>

@@ -12,7 +12,7 @@ class RegionController extends BaseController
     public function __construct(RegionRepository $repository)
     {
         $this->repository = $repository;
-        $this->repository->index(['is_active' => true]);
+        $this->repository->with(['media']);
         parent::__construct();
     }
     #[Override]

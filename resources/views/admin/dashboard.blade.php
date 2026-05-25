@@ -19,7 +19,7 @@
         </a>
 
         <!-- Packages Box -->
-        <a href="#" class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
+        <a href="{{route('admin.packages.index')}}" class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm text-gray-500">Packages</p>

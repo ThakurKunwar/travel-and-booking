@@ -13,6 +13,7 @@ class PackageRepository extends BaseRepository
     {
         //
         $this->model = new Package();
+        $this->with(['media', 'region']);
         parent::__construct();
     }
 }

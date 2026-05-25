@@ -17,7 +17,9 @@ class MediaService
         $className = class_basename($model);
         $folderName = strtolower($className);
         $mediaName = date('-Y-m-d-') . rand(1, 1000) . '.' . $media->extension();
-
+        if ($model->media) {
+            self::deleteMedia($model->media->id);
+        }
         $mediaPath = Storage::putFileAs(
             "public/uploads/{$folderName}",
             $media,
@@ -43,6 +45,26 @@ class MediaService
                 'type' => $media->extension(),
             ]
         ]);
+    }
+    public static function uploadMultipleMedia(array $mediaArr, Model $model)
+    {
+        $mediaData = []; //arrays of media to return 
+        foreach ($mediaArr as $media) {
+            $path = self::storeMedia($media, $model);
+            $repository = new MediaRepository();
+
+            $mediaData[] = $repository->create([
+                'mediaable_id' => $model->id,
+                'mediaable_type' => get_class($model),
+                'path' => $path,
+                'property' => [
+                    'originalName' => $media->getClientOriginalName(),
+                    'size' => $media->getSize(),
+                    'type' => $media->extension(),
+                ]
+            ]);
+        }
+        return $mediaData;
     }
     public static function deleteMedia($modelId)
     {

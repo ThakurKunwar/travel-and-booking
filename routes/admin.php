@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\RegionController;
+use App\Http\Controllers\admin\PackageController;
 use App\Models\Blog;
 use App\Models\Package;
 use App\Models\Region;
@@ -18,3 +19,4 @@ Route::get('/dashboard', function () {
 
 
 Route::resource('regions', RegionController::class);
+Route::resource('packages', PackageController::class);

@@ -15,6 +15,7 @@ use Override;
 
 class PackageController extends BaseController
 {
+    protected string $routePrefix = 'admin';
 
     public function __construct()
     {
@@ -33,30 +34,20 @@ class PackageController extends BaseController
     #[Override]
     public function processStoreData(FormRequest $request)
     {
-        return $request->safe()->except(['image']);
+        return $request->safe()->except(['images']);
     }
     #[Override]
     public function storeCallBack(Model $resource, FormRequest $request)
     {
-        if ($request->hasFile('image')) {
-            MediaService::uploadMedia(
+        if ($request->hasFile('images')) {
+            MediaService::uploadMultipleMedia(
 
-                $request->file('image'),
+                $request->file('images'),
                 $resource
 
             );
         }
-        return $resource;
-    }
-    #[Override]
-    public function updateCallBack(Model $resource, FormRequest $request)
-    {
-        if ($request->hasFile('image')) {
-            if ($resource->media) {
-                MediaService::deleteMedia($resource->media->id);
-            }
-            MediaService::uploadMedia($request->file('image'), $resource);
-        }
+
         return $resource;
     }
 }

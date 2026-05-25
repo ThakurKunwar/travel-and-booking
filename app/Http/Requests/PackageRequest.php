@@ -32,17 +32,16 @@ class PackageRequest extends FormRequest
             'duration_days' => ['required', 'integer', 'min:1'], // whole number like 7
             'description' => ['required', 'string', 'min:10'],
             'is_active' => ['nullable', 'boolean'],
-            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png'], // single image
             'images.*' => ['nullable', 'image', 'mimes:jpg,jpeg,png'], // multiple images
         ];
     }
-    #[Override]
-    public function prepareForValidation()
-    {
-        $this->array_merge(
-            [
-                'is_active' => $this->boolean('is_active')
-            ]
-        );
-    }
+    // #[Override]
+    // public function prepareForValidation()
+    // {
+    //     $this->array_merge(
+    //         [
+    //             'is_active' => $this->boolean('is_active')
+    //         ]
+    //     );
+    // }
 }

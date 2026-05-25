@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\RegionRequest;
-
+use App\Models\Media;
 use App\Repositories\RegionRepository;
 use App\Services\MediaService;
 use Illuminate\Database\Eloquent\Model;
@@ -37,5 +37,10 @@ class RegionController extends BaseController
             );
         }
         return $resource;
+    }
+    #[Override]
+    public function deleteCallBack(Model $resource)
+    {
+        return MediaService::deleteMedia($resource->media->id);
     }
 }
