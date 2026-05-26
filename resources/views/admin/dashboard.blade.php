@@ -44,6 +44,19 @@
             </div>
         </a>
 
+             <!-- plan-trek Box -->
+        <a href="#" class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm text-gray-500">Plan-Trek</p>
+                    <p class="text-2xl font-bold text-gray-800">{{$planTrekCount}}</p>
+                </div>
+                <div class="bg-purple-100 p-3 rounded-lg">
+                    <span class="text-xl">📝</span>
+                </div>
+            </div>
+        </a>
+
         <!-- Contacts Box -->
         <a href="#" class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
             <div class="flex items-center justify-between">

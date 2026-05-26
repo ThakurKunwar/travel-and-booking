@@ -5,7 +5,7 @@ namespace App\Livewire\PowerGrid;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-
+use Override;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Facades\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent as BasePowerGridComponent;
@@ -60,5 +60,12 @@ class PowerGridComponent extends BasePowerGridComponent
     public function onUpdatedToggleable(string $id, string $field, string $value): void
     {
         $this->repository->update($id, [$field => $value]);
+    }
+    public function actions(Model $row): array
+    {
+        return [
+            $this->editButton($row),
+            $this->deleteButton($row),
+        ];
     }
 }

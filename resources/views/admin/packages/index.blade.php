@@ -7,6 +7,6 @@
         </a>
     </div>
 
-    @livewire('tables.package-table')
+    @livewire('packageTable')
 
 </x-admin-layout>

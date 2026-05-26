@@ -36,6 +36,14 @@
                    class="block px-3 py-2 rounded hover:bg-gray-700">
                     💬 Contacts
                 </a>
+                <a href="{{route('admin.users.index')}}" 
+                   class="block px-3 py-2 rounded hover:bg-gray-700">
+                    💬 User
+                </a>
+                <a href="{{route('admin.plan-treks.index')}}" 
+                   class="block px-3 py-2 rounded hover:bg-gray-700">
+                    💬 PlanTrek
+                </a>
                 <hr class="my-4 border-gray-600">
                 <a href="{{ route('logout') }}" 
                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\PlanTrekController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\ReviewController;
@@ -33,5 +34,9 @@ Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+// anyone can submit
+Route::get('/plan-trek', [PlanTrekController::class, 'create'])->name('plan-trek.create');
+Route::post('/plan-trek', [PlanTrekController::class, 'store'])->name('plan-trek.store');
 
 require __DIR__ . '/auth.php';
